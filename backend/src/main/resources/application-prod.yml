@@ -4,11 +4,11 @@ spring:
   data:
     redis:
       host: redis_1
-      password: ${SPRING__DATA__REDIS__PASSWORD}
+      password: ${PASSWORD_1}
   datasource:
-    url: jdbc:mysql://mysql_1:3306/${SPRING__DATASOURCE__URL___DB_NAME}
+    url: jdbc:mysql://mysql_1:3306/${APP_1_DB_NAME}
     username: root
-    password: root123414
+    password: ${PASSWORD_1}
     driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   level:
@@ -17,8 +17,16 @@ logging:
     org.springframework.transaction.interceptor: INFO
     com.back: INFO
 custom:
-  site:
+  prod:
+    cookieDomain: p-14832-1.sik2.site
+    frontUrl: "https://www.p-14832-1.sik2.site"
+    backUrl: "https://api.p-14832-1.sik2.site"
+  site:git
     cookieDomain: "${custom.prod.cookieDomain}"
     frontUrl: "${custom.prod.frontUrl}"
     backUrl: "${custom.prod.backUrl}"
     name: p14832
+  jwt:
+    secretKey: "${PASSWORD_1}"
+  accessToken:
+    expireSeconds: 3600
