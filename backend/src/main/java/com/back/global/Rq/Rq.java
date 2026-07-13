@@ -1,22 +1,26 @@
 package com.back.global.Rq;
 
+import java.util.Arrays;
+import java.util.Optional;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
+
 import com.back.domain.member.member.entity.Member;
 import com.back.domain.member.member.service.MemberService;
 import com.back.global.app.AppConfig;
 import com.back.global.security.SecurityUser;
+
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
-import java.util.Optional;
 
 @Component
+@RequestScope
 @RequiredArgsConstructor
 public class Rq {
     private final HttpServletRequest req;
